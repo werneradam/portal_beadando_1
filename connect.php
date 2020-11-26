@@ -6,8 +6,5 @@
     if (!$kapcsolat) {
         die("Nem sikerült csatlakozni".mysqli_error($kapcsolat));
     } else {
-        "sikeres csatlakozás";
-        echo mysqli_select_db($kapcsolat, $adatbazis) or die("Nem lehet megnyitni az adatbázist:".$adatbazis.mysqli_error($kapcsolat));
-        //echo "Kiválasztott adatbázis: ".$adatbazis."<br>";
+        mysqli_select_db($kapcsolat, $adatbazis) or die("Nem lehet megnyitni az adatbázist:".$adatbazis.mysqli_error($kapcsolat));
     }
-?>
