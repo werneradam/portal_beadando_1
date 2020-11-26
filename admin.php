@@ -40,8 +40,6 @@
     if (isset($_POST["delete"])) {
         $sql1 = "DELETE FROM Users WHERE userid =" . $_POST["userid"];
         $query1 = mysqli_query($kapcsolat, $sql1);
-        $sql2 = "DELETE FROM users_groups WHERE userid =" . $_POST["userid"];
-        $query2 = mysqli_query($kapcsolat, $sql2);
     }
 
     ?>
