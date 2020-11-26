@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <form action="admin_groups.php" method="POST"><input type="submit" name="groups" value="Csoportok"></form>
     <?php
     require_once("connect.php");
     if (isset($_POST["add_user"])) {
@@ -37,8 +38,10 @@
     }
     //Felhasználó törlése
     if (isset($_POST["delete"])) {
-        $sql = "DELETE FROM Users WHERE userid =" . $_POST["userid"];
-        $query = mysqli_query($kapcsolat, $sql);
+        $sql1 = "DELETE FROM Users WHERE userid =" . $_POST["userid"];
+        $query1 = mysqli_query($kapcsolat, $sql1);
+        $sql2 = "DELETE FROM users_groups WHERE userid =" . $_POST["userid"];
+        $query2 = mysqli_query($kapcsolat, $sql2);
     }
 
     ?>
