@@ -93,6 +93,9 @@ $textbox_email = "";
         <input type="submit" name="save_new_data" value="Mentés">
 
     </form>
+    <form action="logout.php" method="POST">
+        <input type="submit" name="logout" value="Kijelentkezés">
+    </form>
 </body>
 
 </html>
