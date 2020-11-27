@@ -55,8 +55,6 @@
     if (isset($_POST["login"])) {
         require_once("connect.php");
 
-        session_start();
-
         $password_hashed = sha1(mysqli_real_escape_string($conn, $_POST["password"]));
         $email = mysqli_real_escape_string($conn, $_POST["email"]);
         $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password_hashed'";
@@ -66,6 +64,7 @@
 
             $_SESSION["username"] = $username;
             $_SESSION["userid"] = $user_data["userid"];
+            $_SESSION["group_fk"] = $user_data["group_fk"];
 
             if ($user_data["is_admin"] == 1) {
 
