@@ -42,3 +42,7 @@ body {
     background-color: grey;
     cursor: pointer;
 }
+
+.bold {
+    font-weight: bold;
+}

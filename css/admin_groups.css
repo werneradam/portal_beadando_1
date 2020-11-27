@@ -1,8 +1,8 @@
 .box {
     background-color: rgb(204, 158, 106, 0.6);
     margin: 10px 10px 10px 100px;
-    padding: 10px 10px 10px 100px;
-    width: 540px;
+    padding: 10px 70px 10px 100px;
+    width: 900px;
     border-radius: 10px;
 }
 
@@ -19,13 +19,4 @@ table {
 td {
     border: none;
     padding: 0px 20px 0px 0px;
-}
-
-.del_btn {
-    margin-top: 5px;
-    border-radius: 6px;
-    border: none;
-    padding: 5px;
-    border-style: solid 2px black;
-    box-shadow: 3px 3px 3px black;
 }
