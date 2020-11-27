@@ -16,7 +16,9 @@
 </head>
 
 <body>
+    <!--Navigációs gomb -->
     <form action="admin.php" method="POST"><input type="submit" name="groups" value="Felhasználók"></form>
+
     <?php
     require_once("connect.php");
     ?>

@@ -16,7 +16,9 @@
 </head>
 
 <body>
+    <!--Navigációs gomb -->
     <form action="admin_groups.php" method="POST"><input type="submit" name="groups" value="Csoportok"></form>
+
     <?php
     require_once("connect.php");
     if (isset($_POST["add_user"])) {
@@ -60,12 +62,12 @@
         <?php while ($row = mysqli_fetch_assoc($query)) { ?>
             <tr>
                 <td><?php echo $row["userid"] ?></td>
-                <td><?php echo $row["email"] ?></td>
                 <td><?php echo $row["username"] ?></td>
+                <td><?php echo $row["email"] ?></td>
                 <td><?php if ($row["is_admin"] == 0) {
-                        echo "Nem";
+                        echo "&#x2716;";
                     } else {
-                        echo "Igen";
+                        echo "&#10004;";
                     } ?></td>
                 <td><?php echo '<form action="admin.php" method="POST">
                 <input type ="hidden" name="userid" value =' . $row["userid"] . '>
@@ -81,12 +83,12 @@
         <h2>Új felhasználó hozzáadása</h2>
         <table>
             <tr>
-                <td>Email cím:</td>
-                <td><input type="email" name="email" required></td>
-            </tr>
-            <tr>
                 <td>Felhasználónév:</td>
                 <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <td>Email cím:</td>
+                <td><input type="email" name="email" required></td>
             </tr>
             <tr>
                 <td>Jelszó:</td>
