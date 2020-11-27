@@ -74,7 +74,7 @@
                 $_SESSION["is_admin"] = 0;
             }
             //Itt kéne átvinni a főoldalunkra
-            header("Location: admin.php");
+            header("Location: group.php");
         } else {
             //Itt is jól jönne a formázás
             echo "Hibás email-cím vagy jelszó!";
