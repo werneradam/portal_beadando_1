@@ -64,14 +64,23 @@ function loadGroup(data) {
     for (const member of data.member_list) {
       result += `<li>${member.username}</li>`
     }
+
     return result;
   }
 
   function drawnPerson() {
     if (data.is_draw == '1')
       return `<label for="drawn_person">Kihúzott személy:</label>
-              <span id="drawn_person">${data.drawn_person_name}</span>`;
+              <span id="drawn_person">${drawnPerson(data.drawn_person_name)}</span>`;
     return '';
+
+    function drawnPerson(drawn_person) {
+      if (drawn_person == 'null' || drawn_person == null) {
+        return 'Kimaradtál a húzásból.';
+      } else {
+        return drawn_person;
+      }
+    }
   }
 
   function remainingDaysText() {
