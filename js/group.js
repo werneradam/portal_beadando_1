@@ -45,7 +45,7 @@ function loadGroup(data) {
       <div class="col-md-5 members-shell">
         <h4>Résztvevők</h4>
         <ul class="members">
-          <li>Fh1</li>
+          ${members()}
         </ul>
       </div>
       <div class="col-md-7 other-data">
@@ -59,6 +59,21 @@ function loadGroup(data) {
         </div>
       </div>`;
 
+  function members() {
+    let result = '';
+    for (const member of data.member_list) {
+      result += `<li>${member.username}</li>`
+    }
+    return result;
+  }
+
+  function drawnPerson() {
+    if (data.is_draw == '1')
+      return `<label for="drawn_person">Kihúzott személy:</label>
+              <span id="drawn_person">${data.drawn_person_name}</span>`;
+    return '';
+  }
+
   function remainingDaysText() {
     let daysText = 'Hátralévő idő:';
     if (expired) {
@@ -69,14 +84,6 @@ function loadGroup(data) {
       return `
       <label for="remaining_days">${daysText}</label>
       <span id="remaining_days">${remainingDays}</span><span> nap</span>`;
-
-    return '';
-  }
-
-  function drawnPerson() {
-    if (data.is_draw == '1')
-      return `<label for="drawn_person">Kihúzott személy:</label>
-              <span id="drawn_person">${data.drawn_person_name}</span>`;
 
     return '';
   }
@@ -98,6 +105,7 @@ function loadGroup(data) {
   document.getElementById('content_body').innerHTML = result;
 
   //events
+  //drawBtn
   if (data.is_creator == '1' && data.is_draw == '0') {
     document.getElementById('draw').addEventListener('click', function () {
       let groupId = data.group_id;
@@ -106,8 +114,7 @@ function loadGroup(data) {
         url: "php/Draw.php",
         data: { group_id: groupId },
         success: function (result) {
-          console.log(JSON.stringify(result));
-
+          alert(result);
           location.reload();
         },
         dataType: 'html'
@@ -115,13 +122,42 @@ function loadGroup(data) {
     });
   }
 
-  if (data.is_creator == '1' && data.is_draw == '0') {
-
+  //left or remove
+  if (data.is_creator == '1') {
+    document.getElementById('remove').addEventListener('click', function () {
+      let groupId = data.group_id;
+      $.ajax({
+        type: "POST",
+        url: "php/RemoveGroup.php",
+        data: { group_id: groupId },
+        success: function (result) {
+          alert(result);
+          location.reload();
+        },
+        dataType: 'html'
+      });
+    });
   } else {
-
+    document.getElementById('left').addEventListener('click', function () {
+      let groupId = data.group_id;
+      $.ajax({
+        type: "POST",
+        url: "php/LeftGroup.php",
+        data: { group_id: groupId },
+        success: function (result) {
+          alert(result);
+          location.reload();
+        },
+        dataType: 'html'
+      });
+    });
   }
 }
 
+/**
+ * LoadGroupList
+ * @param {JSON} data 
+ */
 function loadGroupList(data) {
   let result = `
   <div class="col-12 create-goup">
@@ -163,7 +199,7 @@ function loadGroupList(data) {
 
         location.reload();
       },
-      dataType: 'json'
+      dataType: 'html'
     });
   });
 
@@ -172,6 +208,9 @@ function loadGroupList(data) {
 }
 
 /** Click events */
+/**
+ * CreateGroup
+ */
 function createGroup() {
   let nameElement = document.getElementById('groupe_name');
   let dateElement = document.getElementById('groupe_event');
@@ -189,8 +228,4 @@ function createGroup() {
     },
     dataType: 'html'
   });
-}
-
-function joinClick() {
-
 }

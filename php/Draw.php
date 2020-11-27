@@ -47,6 +47,10 @@ for ($i = 0; $i < sizeof($dataSet); $i++) {
 
 $members_size = sizeof($members);
 
+if ($members_size < 2) {
+  die('Egyedül nem lehet sorsolni!');
+}
+
 for ($i = 0; $i < $members_size - 2; $i++) {
   $member_id = $dataSet[$i]['userid'];
   do {
