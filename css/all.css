@@ -38,3 +38,8 @@ body {
     border-style: solid 2px black;
     box-shadow: 3px 3px 3px black;
 }
+
+.button:hover {
+    background-color: grey;
+    cursor: pointer;
+}

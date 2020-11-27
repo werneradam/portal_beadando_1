@@ -40,11 +40,6 @@ html {
     margin-left: 25px;
 }
 
-.button:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
 #login_btn {
     margin-left: 90px;
 }
