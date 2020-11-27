@@ -26,3 +26,17 @@
 .other-data {
   float: left;
 }
+
+.title {
+    color: rgb(39, 32, 16);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.box {
+    background-color: rgb(204, 158, 106, 0.6);
+    margin: 10px 10px 10px 100px;
+    padding: 10px 10px 10px 100px;
+    width: 540px;
+    border-radius: 10px;
+}

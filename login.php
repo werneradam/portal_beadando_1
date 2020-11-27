@@ -22,7 +22,7 @@
 
 <body>
     <div class="login_box">
-        <p class="cim">Bejelentkező felület</p>
+        <p class="title">Bejelentkező felület</p>
         <div class="error">
             <?php
             if (isset($_GET["errormsg"])) {

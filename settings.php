@@ -20,6 +20,7 @@ $textbox_email = "";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/all.css">
     <title>Secret Santa</title>
 </head>
@@ -64,41 +65,42 @@ $textbox_email = "";
         $textbox_username = $row["username"];
         $textbox_email = $row["email"];
     } ?>
-    </table>
     <br><br>
-    <h2>Jelenlegi adataim</h2>
-    <table>
-            <tr>
-                <td>Felhasználónév:</td>
-                <td><input type="text" name="username" value="<?php echo $textbox_username ?>" required></td>
-            </tr>
-            <tr>
-                <td>Email cím:</td>
-                <td><input type="email" name="email" value="<?php echo $textbox_email ?>" required></td>
-            </tr>
-        </table>
-    <form action="settings.php" method="POST">
-        <h2>Adataim szerkesztése</h2>
+    <div class="box">
+        <p class="title">Jelenlegi adataim</p>
         <table>
-            <tr>
-                <td>Felhasználónév:</td>
-                <td><input type="text" name="username" value="<?php echo $textbox_username ?>" required></td>
-            </tr>
-            <tr>
-                <td>Email cím:</td>
-                <td><input type="email" name="email" value="<?php echo $textbox_email ?>" required></td>
-            </tr>
-            <tr>
-                <td>Jelszó:</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-        </table>
-        <br>
-        <input type="submit" name="save_new_data" value="Mentés">
+                <tr>
+                    <td>Felhasználónév:</td>
+                    <td><input type="text" name="username" value="<?php echo $textbox_username ?>" class="textbox" required></td>
+                </tr>
+                <tr>
+                    <td>Email cím:</td>
+                    <td><input type="email" name="email" value="<?php echo $textbox_email ?>" class="textbox" required></td>
+                </tr>
+            </table>
+        <form action="settings.php" method="POST">
+            <p class="title">Adataim szerkesztése</p>
+            <table>
+                <tr>
+                    <td>Felhasználónév:</td>
+                    <td><input type="text" name="username" value="<?php echo $textbox_username ?>" class="textbox" required></td>
+                </tr>
+                <tr>
+                    <td>Email cím:</td>
+                    <td><input type="email" name="email" value="<?php echo $textbox_email ?>" class="textbox" required></td>
+                </tr>
+                <tr>
+                    <td>Jelszó:</td>
+                    <td><input type="password" name="password" class="textbox"></td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" name="save_new_data" value="Mentés" class="button">
 
-    </form>
+        </form>
+    </div>
     <form action="logout.php" method="POST">
-        <input type="submit" name="logout" value="Kijelentkezés">
+        <input type="submit" name="logout" value="Kijelentkezés" class="button">
     </form>
 </body>
 

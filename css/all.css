@@ -24,3 +24,17 @@ body {
 .menu:hover, .menu:active {
     background-color: rgb(198, 141, 85);
 }
+
+.textbox {
+    opacity: 80%;
+    border-radius: 6px;
+}
+
+.button {
+    margin: 20px 0px 0px 5px;
+    border-radius: 6px;
+    border: none;
+    padding: 5px;
+    border-style: solid 2px black;
+    box-shadow: 3px 3px 3px black;
+}
