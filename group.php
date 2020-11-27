@@ -29,7 +29,7 @@ if (!isset($_SESSION["userid"]))
   </div>
   <div class="content">
     <div class="content-header">
-      <p class="title">Válaszd ki a karácsonyi csoportodat!</p>
+      <p class="title" id="content_header_text">Válaszd ki a karácsonyi csoportodat!</p>
     </div>
     <div id="content_body">
       <div class="col-12 create-gorup">
