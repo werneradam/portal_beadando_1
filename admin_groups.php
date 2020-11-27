@@ -1,4 +1,12 @@
 <?php require_once("connect.php"); ?>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+if ($_SESSION["is_admin"] == 0) {
+    header("Location: group.php");
+} else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,3 +77,6 @@
 </body>
 
 </html>
+<?php
+}
+?>
