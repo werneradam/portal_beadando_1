@@ -10,8 +10,10 @@ $pdo = $PDOConnect->pdo;
 require_once('class/Verification.php');
 $verification =  new Verification();
 
-$query = "SELECT *
+$query = "SELECT groups.*, is_creator, is_admin
                 FROM groups
+                INNER JOIN users
+                ON group_id=group_fk
                 WHERE group_id=:group_id";
 
 $dataQuery = $pdo->prepare($query);

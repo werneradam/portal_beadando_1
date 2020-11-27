@@ -29,27 +29,80 @@ function success(result) {
       loadGroupList(result.data);
       break;
   }
-
-  //click event definition
-  document.getElementById('create_grop_btn').addEventListener('click', createGroup);
 }
 
 /** Frame */
 function loadGroup(data) {
+  let headerElement = document.getElementById('content_header_text');
+  headerElement.innerHTML = data.group_name;
+
+  let diffTime = new Date(data.event_date) - new Date();
+  const expired = diffTime < 0;
+  diffTime = Math.abs(diffTime);
+  const remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
   let result = `
-      <div class="col-12 create-goup">
-        <div class="col-3">
-          <input id="groupe_event" type="date">
+      <div class="col-md-5 members-shell">
+        <h4>Résztvevők</h4>
+        <ul class="members">
+          <li>Fh1</li>
+        </ul>
+      </div>
+      <div class="col-md-7 other-data">
+        <div class="col-12 drawn-person-shell">
+          ${drawnPerson()}
         </div>
-        <div class="col-6">
-          <input id="groupe_name" type="text">
-        </div>
-        <div class="col-3">
-          <button id="create_grop_btn">Csoport létrehozása</button>
+        <div class="col-12 remaining-days-shell">
+          ${remainingDaysText()}
+          ${drawBtn()}
         </div>
       </div>`;
 
+  function remainingDaysText() {
+    let daysText = 'Hátralévő idő:';
+    if (expired) {
+      daysText = 'Már ennyi ideje lajárt:';
+    }
+
+    if (data.is_draw == '0')
+      return `
+      <label for="remaining_days">${daysText}</label>
+      <span id="remaining_days">${remainingDays}</span><span> nap</span>`;
+
+    return '';
+  }
+
+  function drawnPerson() {
+    if (data.is_draw == '1')
+      return `<label for="drawn_person">Kihúzott személy:</label>
+              <span id="drawn_person">${"test"}</span>`;
+
+    return '';
+  }
+
+  function drawBtn() {
+    if (data.is_creator == '1' && data.is_draw == '0')
+      return '<br><button id="draw">Húzás</button>';
+
+    return '';
+  }
+
   document.getElementById('content_body').innerHTML = result;
+
+  //events
+  document.getElementById('draw').addEventListener('click', function () {
+    let groupId = data.group_id;
+    $.ajax({
+      type: "POST",
+      url: "php/JoinToGroup.php",
+      data: { group_id: groupId },
+      success: function (result) {
+        console.log(JSON.stringify(result));
+        alert(result.text);
+      },
+      dataType: 'json'
+    });
+  });
 }
 
 function loadGroupList(data) {
@@ -87,21 +140,22 @@ function loadGroupList(data) {
     $.ajax({
       type: "POST",
       url: "php/JoinToGroup.php",
-      data: { group_id: groupId},
+      data: { group_id: groupId },
       success: function (result) {
         console.log(JSON.stringify(result));
 
-        alert();
+        location.reload();
       },
       dataType: 'json'
     });
   });
+
+  //click event definition
+  document.getElementById('create_grop_btn').addEventListener('click', createGroup);
 }
 
 /** Click events */
 function createGroup() {
-  let contentElement = document.getElementById('content_body');
-  let headerElement = document.getElementById('content_header_text');
   let nameElement = document.getElementById('groupe_name');
   let dateElement = document.getElementById('groupe_event');
   let name = nameElement.value;
@@ -114,9 +168,7 @@ function createGroup() {
     success: function (result) {
       console.log(JSON.stringify(result));
 
-      contentElement.innerHTML = '';
-      headerElement.innerHTML = name;
-      alert(result);
+      location.reload();
     },
     dataType: 'html'
   });

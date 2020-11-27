@@ -31,30 +31,9 @@
   </div>
   <div class="content">
     <div class="content-header">
-      <h4 id="content_header_text">Válaszd ki a karácsonyi csoportodat!</h4>
+      <h3 id="content_header_text">Válaszd ki a karácsonyi csoportodat!</h3>
     </div>
-    <div id="content_body">
-      <div class="col-12 create-gorup">
-        <div class="col-3">
-          <input id="groupe_event" type="date">
-        </div>
-        <div class="col-6">
-          <input id="groupe_name" type="text">
-        </div>
-        <div class="col-3">
-          <button id="create_grop_btn">Csoport létrehozása</button>
-        </div>
-      </div>
-      <div class="col-12 card-shell">
-        <div class="list-card">
-          <div class="col-3 group-event-date">2020.08.21.</div>
-          <div class="col-6 group-name">Test név</div>
-          <div class="col-3 group-join-btn">
-            <button id="join">Csatlakozás</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="content_body"></div>
   </div>
 </body>
 

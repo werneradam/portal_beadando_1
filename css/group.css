@@ -22,3 +22,11 @@
 .list-card {
   display: flex;
 }
+
+.members-shell {
+  float: left;
+}
+
+.other-data {
+  float: left;
+}
