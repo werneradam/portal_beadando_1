@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 require_once("connect.php");
 //Regisztrációs adatok mentése
@@ -19,7 +22,6 @@ if (isset($_POST["registration"])) {
         // TO DO alert() hibaüzenet szebb lenne :D 
         echo '<h3 style="color:red;">Ez az email cím már foglalt!</h3>';
     }
-    session_start();
     $_SESSION["userid"] = $conn->insert_id;
     $_SESSION["username"] = $username;
     $_SESSION["is_admin"] = 0;
