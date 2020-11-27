@@ -19,17 +19,9 @@
 
 <body class="body">
   <div class="header">
-    <ul>
-      <a href="group.php">
-        <li>Csoport</li>
-      </a>
-      <a href="admin.php">
-        <li>Admin felület</li>
-      </a>
-      <a href="settings.php">
-        <li>Beállítások</li>
-      </a>
-    </ul>
+    <form action="group.php" method="POST"><input type="submit" name="group" value="Csoport"  class="menu"></form>
+    <form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin felület"  class="menu"></form>
+    <form action="settings.php" method="POST"><input type="submit" name="settings" value="Beállítások" class="menu"></form>
   </div>
   <div class="content">
     <div class="content-header">

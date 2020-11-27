@@ -19,7 +19,7 @@
         color: red;
     }
 </style>
-<body>
+<body class="body">
     <h1>Admin felület</h1>
     <?php
     echo "<h2>Üdvözöllek: ".$_SESSION["username"]."</h2>";

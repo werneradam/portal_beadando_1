@@ -25,7 +25,7 @@ if ($_SESSION["is_admin"] == 0) {
     <title>Secret Santa</title>
 </head>
 
-<body>
+<body class="body">
     <!--Navigációs gomb -->
     <form action="admin.php" method="POST"><input type="submit" name="groups" value="Felhasználók"></form>
 
