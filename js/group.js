@@ -55,6 +55,7 @@ function loadGroup(data) {
         <div class="col-12 remaining-days-shell">
           ${remainingDaysText()}
           ${drawBtn()}
+          ${leftORemove()}
         </div>
       </div>`;
 
@@ -75,7 +76,7 @@ function loadGroup(data) {
   function drawnPerson() {
     if (data.is_draw == '1')
       return `<label for="drawn_person">Kihúzott személy:</label>
-              <span id="drawn_person">${"test"}</span>`;
+              <span id="drawn_person">${data.drawn_person_name}</span>`;
 
     return '';
   }
@@ -87,22 +88,38 @@ function loadGroup(data) {
     return '';
   }
 
+  function leftORemove() {
+    if (data.is_creator == '1')
+      return '<br><button id="remove">Csoport törlése</button>';
+
+    return '<br><button id="left">Csoport elhagyása</button>';
+  }
+
   document.getElementById('content_body').innerHTML = result;
 
   //events
-  document.getElementById('draw').addEventListener('click', function () {
-    let groupId = data.group_id;
-    $.ajax({
-      type: "POST",
-      url: "php/JoinToGroup.php",
-      data: { group_id: groupId },
-      success: function (result) {
-        console.log(JSON.stringify(result));
-        alert(result.text);
-      },
-      dataType: 'json'
+  if (data.is_creator == '1' && data.is_draw == '0') {
+    document.getElementById('draw').addEventListener('click', function () {
+      let groupId = data.group_id;
+      $.ajax({
+        type: "POST",
+        url: "php/Draw.php",
+        data: { group_id: groupId },
+        success: function (result) {
+          console.log(JSON.stringify(result));
+
+          location.reload();
+        },
+        dataType: 'html'
+      });
     });
-  });
+  }
+
+  if (data.is_creator == '1' && data.is_draw == '0') {
+
+  } else {
+
+  }
 }
 
 function loadGroupList(data) {

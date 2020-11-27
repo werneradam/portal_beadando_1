@@ -12,18 +12,35 @@ $verification =  new Verification();
 
 $query = "SELECT groups.*, is_creator, is_admin
                 FROM groups
-                INNER JOIN users
+                LEFT JOIN users
                 ON group_id=group_fk
-                WHERE group_id=:group_id";
+                WHERE userid=:userid";
 
 $dataQuery = $pdo->prepare($query);
 $dataQuery->execute(
   array(
-    'group_id'    =>    $_SESSION['group_fk']
+    'userid'    =>    $_SESSION['userid']
   )
 );
 
 $dataSet = $dataQuery->fetchAll(PDO::FETCH_ASSOC);
+
+$query = "SELECT u2.*
+          FROM users AS u1
+          LEFT JOIN users AS u2
+          ON u1.userid=u2.drawn_person
+          WHERE u1.userid=:userid";
+
+$dataQuery = $pdo->prepare($query);
+$dataQuery->execute(
+  array(
+    'userid'    =>    $_SESSION['userid']
+  )
+);
+
+$drawn_person = $dataQuery->fetch(PDO::FETCH_ASSOC);
+$dataSet[0]['drawn_person_id'] = $drawn_person['userid'];
+$dataSet[0]['drawn_person_name'] = $drawn_person['username'];
 
 if (sizeof($dataSet) == 1) {
   $result['data'] = $dataSet[0];
