@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Nov 26. 15:31
+-- Létrehozás ideje: 2020. Nov 27. 10:24
 -- Kiszolgáló verziója: 10.4.10-MariaDB
 -- PHP verzió: 7.1.33
 
@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `portal_1`
+-- Adatbázis: `beadando1`
 --
-CREATE DATABASE IF NOT EXISTS `portal_1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `portal_1`;
+CREATE DATABASE IF NOT EXISTS `beadando1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `beadando1`;
 
 -- --------------------------------------------------------
 
@@ -48,9 +48,16 @@ CREATE TABLE `users` (
   `username` varchar(100) CHARACTER SET utf8 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 NOT NULL,
   `email` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `group_fk` int(11) NOT NULL,
+  `group_fk` int(11) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `users`
+--
+
+INSERT INTO `users` (`userid`, `username`, `password`, `email`, `group_fk`, `is_admin`) VALUES
+(7, 'test1', '7c222fb2927d828af22f592134e8932480637c0d', 'test1@gmail.com', NULL, 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -83,7 +90,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Megkötések a kiírt táblákhoz

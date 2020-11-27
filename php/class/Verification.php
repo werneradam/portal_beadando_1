@@ -7,28 +7,31 @@ class Verification
   function __construct()
   {
     //includes
-    require_once('Connect.php');
+    require_once('PDOConnect.php');
     $PDOConnect = new PDOConnect();
     $this->pdo = $PDOConnect->pdo;
 
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
     //module varibles ini
     $this->check = false;
     $this->userData = array();
 
     //skip if no user id
-    if (isset($_SESSION['UserId'])) {
-      return;
+    if (!isset($_SESSION['userid'])) {
+      die('No user id!');
     }
 
     //get user from users table
     $query = "SELECT *
                 FROM users
-                WHERE userid=:UserId";
+                WHERE userid=:userid";
 
     $dataQuery = $this->pdo->prepare($query);
     $dataQuery->execute(
       array(
-        ':UserId'    =>    $_SESSION['UserId']
+        ':userid'    =>    $_SESSION['userid']
       )
     );
 

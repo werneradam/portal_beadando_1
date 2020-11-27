@@ -6,12 +6,27 @@ function ini() {
   $(document).ready(function () {
     $.ajax({
       type: "POST",
-      url: "./php/Router.php",
-      data: { 'CallClass': module },
+      url: "php/GroupIni.php",
+      data: {},
       success: function (result) {
         console.log(JSON.stringify(result));
+
       },
       dataType: 'json'
     });
   });
+}
+
+/**
+ * Success query
+ * @param {JSON} result 
+ */
+function success(result) {
+
+}
+
+
+/** Click events */
+function joinClick() {
+
 }

@@ -18,7 +18,7 @@ if (!isset($_SESSION)) session_start();
     <?php
     // echo + formazo css loginba is ----- 2:28nal is fejlec potlasa
     $sql = "SELECT * FROM users";
-    $querry = mysqli_query($kapcsolat, $sql);
+    $querry = mysqli_query($conn, $sql);
     ?>
     <h2>Regisztráció</h2>
     <form action="check.php" method="POST">

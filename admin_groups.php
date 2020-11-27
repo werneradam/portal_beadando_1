@@ -26,13 +26,13 @@
         //Felhasználó kirúgása a csoportból
         if (isset($_POST["delete_from_group"])) {
             $sql1 = "UPDATE users SET group_fk=0,is_creator=0 WHERE userid=". $_POST["userid"];
-            $query1 = mysqli_query($kapcsolat, $sql1);
+            $query1 = mysqli_query($conn, $sql1);
         }
     $sql = "SELECT groups.group_id, groups.group_name, users.username, users.is_creator, users.email, users.userid, groups.event_date FROM users
     JOIN groups
     ON groups.group_id = users.group_fk
     ORDER BY groups.group_id;";
-    $query = mysqli_query($kapcsolat, $sql);
+    $query = mysqli_query($conn, $sql);
 
     
 

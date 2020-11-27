@@ -1,6 +1,6 @@
 <?php
     if (!isset($_SESSION)) session_start();
-    if (!isset($_SESSION["loggedin"])){
+    if (!isset($_SESSION["username"])){
         header("Location: login.php");
         exit;
     };
@@ -28,15 +28,15 @@
     <?php 
     require_once("connect.php");
     if (isset($_POST["submit"])) {
-        $username = mysqli_escape_string($kapcsolat, $_POST["username"]);
-        $password_hashed = sha1(mysqli_escape_string($kapcsolat, $_POST["password"]));
-        $email = mysqli_escape_string($kapcsolat, $_POST["email"]);
-        $is_admin = mysqli_escape_string($kapcsolat, $_POST["is_admin"]);
+        $username = mysqli_escape_string($conn, $_POST["username"]);
+        $password_hashed = sha1(mysqli_escape_string($conn, $_POST["password"]));
+        $email = mysqli_escape_string($conn, $_POST["email"]);
+        $is_admin = mysqli_escape_string($conn, $_POST["is_admin"]);
         
         $sql = "INSERT INTO users (userid, username, password, email, is_admin) VALUES ('3', '$username', '$password_hashed', '$email', '$is_admin')";
         //valamiert nem mukodik az autoincrement
-        if (!mysqli_query($kapcsolat, $sql)) {
-            die("Hiba: ".mysqli_error($kapcsolat));
+        if (!mysqli_query($conn, $sql)) {
+            die("Hiba: ".mysqli_error($conn));
         }
 
     }

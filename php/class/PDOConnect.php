@@ -7,7 +7,7 @@ class PDOConnect
     $servername = $_SERVER['HTTP_HOST'];
     $username = "root";
     $password = "";
-    $database = "portal_1";
+    $database = "beadando1";
 
     try {
       $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username, $password);

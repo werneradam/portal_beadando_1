@@ -9,23 +9,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <link rel="stylesheet" href="css/group.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="js/group.js"></script>
 </head>
 
 <body class="body">
-  <div class="header"></div>
+  <div class="header">
+    <ul>
+      <a href="group.php"><li>Csoport</li></a>
+      <a href="admin.php"><li>Admin felület</li></a>
+      <a href="settings.php"><li>Beállítások</li></a>
+    </ul>
+  </div>
   <div class="content">
     <div class="content-header">
-      <h4 id="content_header_text"></h4>
+      <h4 id="content_header_text">Válaszd ki a karácsonyi csoportodat!</h4>
     </div>
     <div id="content_body">
       <div class="card-shell">
-        <div class="card">
+        <div class="list-card">
           <div class="col-3 group-event-date"></div>
-          <div class="col-8 group-name"></div>
-          <div class="col-1 group-join-btn"></div>
+          <div class="col-6 group-name"></div>
+          <div class="col-3 group-join-btn">
+            <button id="join">Csatlakozás</button>
+          </div>
         </div>
       </div>
     </div>

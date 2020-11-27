@@ -20,9 +20,9 @@
     <?php
     require_once("connect.php");
     if (isset($_POST["add_user"])) {
-        $username = mysqli_real_escape_string($kapcsolat, $_POST["username"]);
-        $password_hashed = sha1(mysqli_real_escape_string($kapcsolat, $_POST["password"]));
-        $email = mysqli_real_escape_string($kapcsolat, $_POST["email"]);
+        $username = mysqli_real_escape_string($conn, $_POST["username"]);
+        $password_hashed = sha1(mysqli_real_escape_string($conn, $_POST["password"]));
+        $email = mysqli_real_escape_string($conn, $_POST["email"]);
 
         if (isset($_POST["is_admin"])) {
             $is_admin_num = 1;
@@ -31,7 +31,7 @@
         }
 
         $sql = "INSERT INTO Users (username, password, email, is_admin) VALUES ('$username','$password_hashed','$email','$is_admin_num')";
-        if (!mysqli_query($kapcsolat, $sql)) {
+        if (!mysqli_query($conn, $sql)) {
             // TO DO alert() hibaüzenet szebb lenne :D 
             echo '<h3 style="color:red;">Ez az email cím már foglalt!</h3>';
         }
@@ -39,7 +39,7 @@
     //Felhasználó törlése
     if (isset($_POST["delete"])) {
         $sql1 = "DELETE FROM Users WHERE userid =" . $_POST["userid"];
-        $query1 = mysqli_query($kapcsolat, $sql1);
+        $query1 = mysqli_query($conn, $sql1);
     }
 
     ?>
@@ -47,7 +47,7 @@
     <h2>Felhasználók listája</h2>
     <?php
     $sql = "SELECT * FROM Users ORDER BY userid";
-    $query = mysqli_query($kapcsolat, $sql);
+    $query = mysqli_query($conn, $sql);
 
     ?>
     <table>
