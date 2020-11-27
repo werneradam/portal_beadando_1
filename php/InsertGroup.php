@@ -14,10 +14,6 @@ if (!(isset($_POST['name']) && isset($_POST['date']))) {
   die('Hiányoznak az adatok!');
 }
 
-if ($_POST['name'] == '' || $_POST['date'] == '') {
-  die('Hiányoznak az adatok!');
-}
-
 $group_name = $_POST['name'];
 $group_date = $_POST['date'];
 
@@ -37,7 +33,23 @@ $data = [
 $sql = "INSERT INTO groups (group_name, event_date) VALUES (:group_name, :event_date)";
 
 if ($pdo->prepare($sql)->execute($data)) {
-  echo 'Sikeres létrehozás!';
+  $group_id = $pdo->lastInsertId();
+
+  $data = [
+    'group_fk' => $group_id,
+    'is_creator' => '1',
+    'userid' => $_SESSION['userid'],
+  ];
+
+  $sql = "UPDATE users SET group_fk=:group_fk, is_creator=:is_creator WHERE userid=:userid";
+
+  if ($pdo->prepare($sql)->execute($data)) {
+    $_SESSION["group_fk"] = $group_id;
+
+    echo 'Sikeres létrehozás!';
+  } else {
+    echo 'Sikertelen létrehozás!';
+  }
 } else {
   echo 'Sikertelen létrehozás!';
 }
