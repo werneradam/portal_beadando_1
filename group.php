@@ -34,7 +34,7 @@ if (!isset($_SESSION["userid"]))
     <div id="content_body">
       <div class="col-12 create-gorup">
         <div class="col-3">
-          <input id="groupe_event" type="date">
+          <input id="group_event" type="date">
         </div>
         <div class="col-6">
           <input id="groupe_name" type="text">

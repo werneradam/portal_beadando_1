@@ -1,56 +1,53 @@
 .full {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
+}
   
-  .no-padding {
-    padding: 0;
-  }
+.no-padding {
+  padding: 0;
+}
   
-  .header {
-    width: 200px;
-  }
+.header {
+  width: 200px;
+}
   
-  .content {
-    flex: 1;
-  }
+.content {
+  flex: 1;
+}
   
-  .list-card {
-    display: flex;
-  }
+.list-card {
+  display: flex;
+}
   
-  .members-shell {
-    float: left;
-  }
+.members-shell {
+  float: left;
+}
   
-  .other-data {
-    float: left;
-  }
+.other-data {
+  float: left;
+}
   
-  .title {
-      color: rgb(39, 32, 16);
-      font-size: 25px;
-      font-weight: bold;
-  }
+.title {
+    color: rgb(39, 32, 16);
+    font-size: 25px;
+    font-weight: bold;
+}
   
-  .content {
-      background-color: rgb(204, 158, 106, 0.6);
-      margin: 10px 10px 10px 100px;
-      padding: 10px 10px 10px 100px;
-      width: 650px;
-      border-radius: 10px;
-  }
+.content {
+    background-color: rgb(204, 158, 106, 0.6);
+    margin: 10px 10px 10px 100px;
+    padding: 10px 10px 10px 100px;
+    width: 650px;
+    border-radius: 10px;
+}
 
-  button {
-    margin: 20px 0px 0px 5px;
-    border-radius: 6px;
-    border: none;
-    padding: 5px;
-    border-style: solid 2px black;
-    box-shadow: 3px 3px 3px black;
-  }
+button {
+  margin-top: 8px !important;
+  border-radius: 6px !important;
+  border-style: solid 2px black !important;
+  box-shadow: 3px 3px 3px black !important;
+}
 
-  .button:hover {
-    background-color: grey;
-    cursor: pointer;
+button:hover {
+  background-color: grey !important;
 }
