@@ -1,0 +1,64 @@
+body {
+    background: url("../img/login_bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    
+}
+
+html {
+    display: table;
+    margin: auto;
+    height: 100%;
+}
+
+.cim {
+    color: rgb(241, 217, 203);
+    font-size: 22px;
+}
+
+.login_box {
+    background-color: rgb(93, 122, 66, 0.6);
+    padding: 10px 30px 20px 30px;
+    border-radius: 6%;
+    border-style: solid 3px black;
+    box-shadow: 10px 10px 10px black;
+}
+
+.data {
+    color: rgb(250, 241, 236);
+}
+
+.info {
+    color: rgb(250, 241, 236);
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+.textbox {
+    opacity: 80%;
+    border-radius: 6px;
+}
+
+.button {
+    margin: 20px 0px 0px 5px;
+    border-radius: 6px;
+    border: none;
+    padding: 5px;
+    border-style: solid 2px black;
+    box-shadow: 3px 3px 3px black;
+}
+
+.button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+#login_btn {
+    margin-left: 90px;
+}

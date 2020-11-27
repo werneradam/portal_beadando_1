@@ -20,6 +20,8 @@ if ($_SESSION["is_admin"] == 0) {
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/all.css">
     <title>Secret Santa</title>
 </head>
 
