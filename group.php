@@ -18,9 +18,15 @@
 <body class="body">
   <div class="header">
     <ul>
-      <a href="group.php"><li>Csoport</li></a>
-      <a href="admin.php"><li>Admin felület</li></a>
-      <a href="settings.php"><li>Beállítások</li></a>
+      <a href="group.php">
+        <li>Csoport</li>
+      </a>
+      <a href="admin.php">
+        <li>Admin felület</li>
+      </a>
+      <a href="settings.php">
+        <li>Beállítások</li>
+      </a>
     </ul>
   </div>
   <div class="content">
@@ -28,10 +34,21 @@
       <h4 id="content_header_text">Válaszd ki a karácsonyi csoportodat!</h4>
     </div>
     <div id="content_body">
-      <div class="card-shell">
+      <div class="col-12 create-gorup">
+        <div class="col-3">
+          <input id="groupe_event" type="date">
+        </div>
+        <div class="col-6">
+          <input id="groupe_name" type="text">
+        </div>
+        <div class="col-3">
+          <button id="create_grop_btn">Csoport létrehozása</button>
+        </div>
+      </div>
+      <div class="col-12 card-shell">
         <div class="list-card">
-          <div class="col-3 group-event-date"></div>
-          <div class="col-6 group-name"></div>
+          <div class="col-3 group-event-date">2020.08.21.</div>
+          <div class="col-6 group-name">Test név</div>
           <div class="col-3 group-join-btn">
             <button id="join">Csatlakozás</button>
           </div>
