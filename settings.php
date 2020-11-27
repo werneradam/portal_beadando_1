@@ -28,24 +28,24 @@ $textbox_email = "";
 
     <?php
         if (isset($_POST["save_new_data"])) {
-            $username = mysqli_real_escape_string($kapcsolat, $_POST["username"]);
-            $password_hashed = sha1(mysqli_real_escape_string($kapcsolat, $_POST["password"]));
-            $email = mysqli_real_escape_string($kapcsolat, $_POST["email"]);
+            $username = mysqli_real_escape_string($conn, $_POST["username"]);
+            $password_hashed = sha1(mysqli_real_escape_string($conn, $_POST["password"]));
+            $email = mysqli_real_escape_string($conn, $_POST["email"]);
 
             //Ha jelszót is változtat
             if(isset($_POST["password"])){
 
                 $sql = "UPDATE Users SET username = '$username', password ='$password_hashed', email = '$email' WHERE userid =". $_SESSION['userid'];
-                if (!mysqli_query($kapcsolat, $sql)) {
+                if (!mysqli_query($conn, $sql)) {
                     // TO DO alert() hibaüzenet szebb lenne :D 
-                    echo '<h3 style="color:red;">Ez az email cím már fffffoglalt!</h3>';
+                    echo '<h3 style="color:red;">Ez az email cím már foglalt!</h3>';
                 }
 
             }else{//Ha jelszót NEM változtat
 
                 $sql = "UPDATE Users SET username = '$username', email = '$email' WHERE userid =". $_SESSION['userid'];
 
-                if (!mysqli_query($kapcsolat, $sql)) {
+                if (!mysqli_query($conn, $sql)) {
                     // TO DO alert() hibaüzenet szebb lenne :D 
                     echo '<h3 style="color:red;">Ez az email cím már foglalt!</h3>';
                 }
@@ -55,7 +55,7 @@ $textbox_email = "";
 
     <?php
     $sql = "SELECT * FROM Users  WHERE userid =" . "'" . $_SESSION['userid'] . "'";
-    $query = mysqli_query($kapcsolat, $sql);
+    $query = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($query)) {
         $textbox_username = $row["username"];
         $textbox_email = $row["email"];
