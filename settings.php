@@ -1,8 +1,13 @@
 <?php require_once("connect.php"); ?>
 <?php
 if (!isset($_SESSION)) {
-    session_start();
-}
+    session_start();}
+
+if (!isset($_SESSION["userid"])) {
+    header("Location: group.php");
+}else{
+
+
 $textbox_username = "";
 $textbox_email = "";
 ?>
@@ -103,5 +108,7 @@ $textbox_email = "";
         <input type="submit" name="logout" value="Kijelentkezés" class="button">
     </form>
 </body>
-
 </html>
+<?php
+}
+?>
