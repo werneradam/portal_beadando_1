@@ -1,9 +1,13 @@
 # portal_beadando_1
 
 Készítette:
+
 Knon Máté Károly (BYEPTT)
+
 Prehoda Barna (AWZCZ9)
+
 Székely Dalma (F6139U, másik csoport)
+
 Werner Ádám (HTOXJV)
 
 # Secret Santa
@@ -11,7 +15,7 @@ Werner Ádám (HTOXJV)
 # Leírás
 
 A webalkalmazásunk neve Secret Santa. Ez egy karácsonyi titkos húzást megvalósító online felület.
-A kezdőoldalon be lehet jelentkezni vagy új felhasználóként regisztrálni: felhasználónév (bármi lehet, nem egyedi), email cím (egyedi azonosító, egy @-et kell tartalmazzon), jelszó megadása
+A kezdőoldalon be lehet jelentkezni vagy új felhasználóként regisztrálni: felhasználónév (bármi lehet, nem egyedi), email cím (egyedi azonosító, egy @-et kell tartalmazzon), jelszó megadása.
 Ezután megjelenik a Csoportok oldal, ahol meg lehet nézni a húzásos csoportokot, majd a szimpatikushoz csatlakozni.
 
 Első lépésként egy csoportvezetőnek kell felregisztrálnia az oldalra, akinek meg kell adnia a csoport nevét és a húzás napját. Ő tudja majd később elindítani is a húzást, illetve ha meggondolná magát, akkor a csoportot törölni is tudja.
