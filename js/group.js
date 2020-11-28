@@ -36,6 +36,8 @@ function loadGroup(data) {
   let headerElement = document.getElementById('content_header_text');
   headerElement.innerHTML = data.group_name;
 
+  document.getElementById('content_body').style = 'display: flex';
+
   let diffTime = new Date(data.event_date) - new Date();
   const expired = diffTime < 0;
   diffTime = Math.abs(diffTime);
@@ -71,7 +73,7 @@ function loadGroup(data) {
   function drawnPerson() {
     if (data.is_draw == '1')
       return `<label for="drawn_person">Kihúzott személy:</label>
-              <span id="drawn_person">${drawnPerson(data.drawn_person_name)}</span>`;
+              <h5 id="drawn_person">${drawnPerson(data.drawn_person_name)}</h5>`;
     return '';
 
     function drawnPerson(drawn_person) {
