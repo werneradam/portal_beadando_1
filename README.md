@@ -48,16 +48,16 @@ Az admin_groups.php oldalon ezt megteheti. Ezt a lapot alapból csak admin jogos
 
 Csapattagok feladatai:
 
-Knon Máté:
+## Knon Máté:
 A regisztráció és a bejelentkezés (registration.php, login.php) űrlapot készítette el, részt vett a hibák kijavításánál is.
 
-Prehoda Barna:
+## Prehoda Barna:
 Az admin felület (admin\_groups.php, admin.php) elkészítése Prehoda Barnára esett, a php-k hibajavításában is részt vett.
 
-Székely Dalma:
+## Székely Dalma:
 Az oldal kinézete volt a legfőbb feladata, de a hibajavításoknál is jelentős szerepet kapott. Mindegyik css nagyrészt az ő munkájának köszönhető, ezen kívül a group.php-t is szerkesztette.
 
-Werner Ádám:
+## Werner Ádám:
 Legtöbbet a group.php-ban szerkesztett, de a php-k összekapcsolásánál is jeleskedett.
 
 Nehézségek a feladat során:
