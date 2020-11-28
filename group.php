@@ -26,7 +26,8 @@ if (!isset($_SESSION["userid"]))
     <form action="group.php" method="POST"><input type="submit" name="group" value="Csoport" class="menu"></form>
     <?php
     if ($_SESSION["is_admin"]) {
-      echo '<form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin felület" class="menu"></form>';
+      echo '<form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin - felh." class="menu"></form>';
+      echo '<form action="admin_groups.php" method="POST"><input type="submit" name="admin" value="Admin - csop." class="menu"></form>';
     }
     ?>
     <form action="settings.php" method="POST"><input type="submit" name="settings" value="Beállítások" class="menu"></form>

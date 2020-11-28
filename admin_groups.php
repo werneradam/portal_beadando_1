@@ -29,7 +29,12 @@ if ($_SESSION["is_admin"] == 0) {
     <body class="body">
         <div class="header">
             <form action="group.php" method="POST"><input type="submit" name="group" value="Csoport" class="menu"></form>
-            <form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin felület" class="menu"></form>
+            <?php
+            if ($_SESSION["is_admin"]) {
+                echo '<form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin - felh." class="menu"></form>';
+                echo '<form action="admin_groups.php" method="POST"><input type="submit" name="admin" value="Admin - csop." class="menu"></form>';
+            }
+            ?>
             <form action="settings.php" method="POST"><input type="submit" name="settings" value="Beállítások" class="menu"></form>
         </div>
 
@@ -39,16 +44,16 @@ if ($_SESSION["is_admin"] == 0) {
         <div class="box">
             <p class="title">Csoportok és tagjaik listája</p>
             <?php
-                //Felhasználó kirúgása a csoportból
-                if (isset($_POST["delete_from_group"])) {
-                    $sql1 = "UPDATE users SET group_fk=null,is_creator=0 WHERE userid=" . $_POST["userid"];
-                    $query1 = mysqli_query($conn, $sql1);
-                }
-                $sql = "SELECT groups.group_id, groups.group_name, users.username, users.is_creator, users.email, users.userid, groups.event_date FROM users
+            //Felhasználó kirúgása a csoportból
+            if (isset($_POST["delete_from_group"])) {
+                $sql1 = "UPDATE users SET group_fk=null,is_creator=0 WHERE userid=" . $_POST["userid"];
+                $query1 = mysqli_query($conn, $sql1);
+            }
+            $sql = "SELECT groups.group_id, groups.group_name, users.username, users.is_creator, users.email, users.userid, groups.event_date FROM users
                         JOIN groups
                         ON groups.group_id = users.group_fk
                         ORDER BY groups.group_id;";
-                $query = mysqli_query($conn, $sql);
+            $query = mysqli_query($conn, $sql);
             ?>
             <table>
                 <tr>

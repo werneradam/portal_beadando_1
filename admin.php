@@ -10,6 +10,7 @@ if ($_SESSION["is_admin"] == 0) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <style>
             table,
@@ -28,11 +29,12 @@ if ($_SESSION["is_admin"] == 0) {
 
     <body class="body">
         <div class="header">
-            <form action="group.php" method="POST"><input type="submit" name="group" value="Csoport"  class="menu"></form>
+            <form action="group.php" method="POST"><input type="submit" name="group" value="Csoport" class="menu"></form>
             <?php
-                if ($_SESSION["is_admin"] ) {
-                    echo '<form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin felület" class="menu"></form>';
-                }
+            if ($_SESSION["is_admin"]) {
+                echo '<form action="admin.php" method="POST"><input type="submit" name="admin" value="Admin - felh." class="menu"></form>';
+                echo '<form action="admin_groups.php" method="POST"><input type="submit" name="admin" value="Admin - csop." class="menu"></form>';
+            }
             ?>
             <form action="settings.php" method="POST"><input type="submit" name="settings" value="Beállítások" class="menu"></form>
         </div>
@@ -98,31 +100,32 @@ if ($_SESSION["is_admin"] == 0) {
             <br><br>
             <form action="admin.php" method="POST">
                 <p class="title">Új felhasználó hozzáadása</h2>
-                <table>
-                    <tr>
-                        <td>Felhasználónév:</td>
-                        <td><input type="text" name="username" class="textbox" required></td>
-                    </tr>
-                    <tr>
-                        <td>Email cím:</td>
-                        <td><input type="email" name="email" class="textbox" required></td>
-                    </tr>
-                    <tr>
-                        <td>Jelszó:</td>
-                        <td><input type="password" name="password" class="textbox" required></td>
-                    </tr>
-                    <tr>
-                        <td>Jogosultság:</td>
-                        <td><input type="checkbox" name="is_admin"> Admin felhasználó</td>
-                    </tr>
-                </table>
-                <br>
-                <input type="submit" name="add_user" value="Hozzáadás" class="button">
+                    <table>
+                        <tr>
+                            <td>Felhasználónév:</td>
+                            <td><input type="text" name="username" class="textbox" required></td>
+                        </tr>
+                        <tr>
+                            <td>Email cím:</td>
+                            <td><input type="email" name="email" class="textbox" required></td>
+                        </tr>
+                        <tr>
+                            <td>Jelszó:</td>
+                            <td><input type="password" name="password" class="textbox" required></td>
+                        </tr>
+                        <tr>
+                            <td>Jogosultság:</td>
+                            <td><input type="checkbox" name="is_admin"> Admin felhasználó</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <input type="submit" name="add_user" value="Hozzáadás" class="button">
 
             </form>
         </div>
     </body>
-</html>
+
+    </html>
 <?php
 }
 ?>
