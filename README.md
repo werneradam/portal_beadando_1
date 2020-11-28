@@ -60,10 +60,9 @@ Az oldal kinézete volt a legfőbb feladata, de a hibajavításoknál is jelent�
 ## Werner Ádám:
 Legtöbbet a group.php-ban szerkesztett, de a php-k összekapcsolásánál is jeleskedett.
 
-Nehézségek a feladat során:
-
+### Nehézségek a feladat során:
 A git változáskövetés sokszor nem a leggördülékenyebb platform volt a merge conflictok kezelésekor.
 Mivel a csapat fizikailag nem dogozhatott együtt, így sok híváson és üzeneten vagyunk túl, de ez alapvetően nagy meglepetésünkre nem bizonyult hátráltató tényezőnek a fejlesztés során.
 Nem sokkal azután, hogy feltöltöttük a projektet a serverre, a php-s része elérhetetlenné vált, így megnehezítve a dolgonkut, hogy tudjuk, minden rendben vele.
 
-Web-server elérhetősége:
+#### Web-server elérhetősége:
