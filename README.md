@@ -33,3 +33,5 @@ Székely Dalma: design, illetve kisebb javítások a szerkezetben
 Werner Ádám:
 
 Nehézségek a feladat során:
+
+Web-server elérhetősége:
