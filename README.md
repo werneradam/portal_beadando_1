@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # portal_beadando_1
 
 Készítette:
@@ -11,7 +10,6 @@ Werner Ádám (HTOXJV)
 
 # Leírás
 
-<<<<<<< HEAD
 A webalkalmazásunk neve Secret Santa. Ez egy karácsonyi titkos húzást megvalósító online felület.
 A kezdőoldalon be lehet jelentkezni vagy új felhasználóként regisztrálni: felhasználónév (bármi lehet, nem egyedi), email cím (egyedi azonosító, egy @-et kell tartalmazzon), jelszó megadása
 Ezután megjelenik a Csoportok oldal, ahol meg lehet nézni a húzásos csoportokot, majd a szimpatikushoz csatlakozni.
